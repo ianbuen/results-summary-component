@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "color.js": "^1.2.0",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.1",
     "next": "13.2.1",

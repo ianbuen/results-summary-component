@@ -1,8 +1,11 @@
 import ResultSummary from '@/components/ResultSummary'
 import Head from 'next/head'
 import json from "@/data.json"
+import { prominent } from 'color.js';
+import { useEffect } from 'react';
 
-export default function Home({data}) {
+export default function Home({data}) {  
+
   return (
     <>
       <Head>
@@ -18,5 +21,6 @@ export default function Home({data}) {
 }
 
 export const getStaticProps = async () => {
-    return { props: { data : json} };
+
+    return { props: { data : json } };
 };

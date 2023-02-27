@@ -21,7 +21,7 @@ $dark_gray_blue: hsl(224, 30%, 27%)
         border-bottom-left-radius: 1.5625rem
         border-bottom-right-radius: 1.5625rem
         place-items: center
-        padding: 1.5625rem
+        padding: 1.5625rem 3.125rem 2.5rem
         text-align: center
 
         h1
@@ -54,15 +54,11 @@ $dark_gray_blue: hsl(224, 30%, 27%)
             color: $light_lavender
             font-weight: 300
 
-
     main
         display: grid
-        padding: 1.5625rem
+        padding: 1.25rem 1.5625rem
         row-gap: .9375rem
         font-weight: bold
-
-        *
-            outline: 1px solid green
 
         > h1
             line-height: 2
@@ -76,6 +72,12 @@ $dark_gray_blue: hsl(224, 30%, 27%)
             column-gap: .3125rem
             grid-template-columns: 2rem auto max-content
 
+            .score
+                color: grey
+
+                span
+                    color: $dark_gray_blue
+
         input
             border: none
             border-radius: 3.125rem
@@ -84,6 +86,7 @@ $dark_gray_blue: hsl(224, 30%, 27%)
             color: $pale_blue
             font-weight: bold
             font-size: 1rem
+            margin: 1rem
 
         .image_wrapper
             position: relative

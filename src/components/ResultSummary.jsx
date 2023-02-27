@@ -1,7 +1,27 @@
 import Image from "next/image";
 import styles from "@/styles/ResultSummary.module.sass";
+import { prominent } from "color.js";
+import { useEffect, useState } from "react";
 
-export const ResultSummary = ({data}) => {
+export const ResultSummary = (props) => {
+
+    const [data, setData] = useState(props.data);
+
+    // temp alias for console log
+    const x = (y) => {
+        console.log(y);
+    } 
+
+    // dynamically get the colors of the icons, adding a property to
+    // the json without changing the original file
+    useEffect(() => {
+        data.forEach((item) => {
+            prominent(item.icon, {format:'hex'}).then(colors => {
+                item.color = colors[1];
+                setData([...data]);
+            });
+        });
+    }, []) 
 
     return (<div className={styles.summary}>
         <header>
@@ -15,29 +35,18 @@ export const ResultSummary = ({data}) => {
         <main>
             <h1>Summary</h1>
 
-            {data.map(({category, score, icon}, i) => {
-                return <div className={styles.category} key={i}>
+            {data.map(({category, score, icon, color}, i) => {
+
+                return <div style={{ color: color, background: color + "20" }} className={styles.category} key={i}>
                     <div className={styles.image_wrapper}>
                         <Image src={icon} alt={category} fill />
                     </div>
                     
                     <h2>{category}</h2>
 
-                    <h2>{score} / 100</h2>
+                    <h2 className={styles.score}><span>{score}</span> / 100</h2>
                 </div>
-            })}
-
-            {/* Reaction
-            80 / 100
-
-            Memory
-            92 / 100
-
-            Verbal
-            61 / 100
-
-            Visual
-            72 / 100 */}
+            })} 
 
             <input type="button" value="Continue" />
         </main>
