@@ -1,0 +1,90 @@
+$light_red: hsl(0, 100%, 67%)
+$orangey_yellow: hsl(39, 100%, 56%)
+$green_teal: hsl(166, 100%, 37%)
+$cobalt_blue: hsl(234, 85%, 45%)
+
+$slate_blue: hsl(252, 100%, 67%)
+$royal_blue: hsl(241, 81%, 54%)
+
+$violet_blue: hsla(256, 72%, 46%, 1)
+$persian_blue: hsla(241, 72%, 46%, 0)
+
+$pale_blue: hsl(221, 100%, 96%)
+$light_lavender: hsl(241, 100%, 89%)
+$dark_gray_blue: hsl(224, 30%, 27%)
+    
+.summary
+
+    header
+        display: grid
+        background: linear-gradient($slate_blue, $royal_blue)
+        border-bottom-left-radius: 1.5625rem
+        border-bottom-right-radius: 1.5625rem
+        place-items: center
+        padding: 1.5625rem
+        text-align: center
+
+        h1
+            color: $light_lavender
+            font-weight: bold
+        
+        h2
+            background: linear-gradient($violet_blue, $persian_blue)
+            display: grid
+            place-items: center
+            border-radius: 50%
+            padding: 1.4rem
+            margin: 1.5625rem 0
+            font-size: .75rem
+            color: $light_lavender
+
+            span
+                font-size: 3rem
+                font-weight: bolder
+                color: white
+                padding: 0.5rem
+        
+        h3
+            color: white
+            font-weight: bold
+            font-size: 1.25rem
+            margin-bottom: 1rem
+
+        p
+            color: $light_lavender
+            font-weight: 300
+
+
+    main
+        display: grid
+        padding: 1.5625rem
+        row-gap: .9375rem
+        font-weight: bold
+
+        *
+            outline: 1px solid green
+
+        > h1
+            line-height: 2
+
+        .category
+            padding: .9375rem
+            border-radius: .3125rem
+            line-height: 1.25
+            display: grid
+            grid-auto-flow: column
+            column-gap: .3125rem
+            grid-template-columns: 2rem auto max-content
+
+        input
+            border: none
+            border-radius: 3.125rem
+            padding: .9375rem
+            background: $dark_gray_blue
+            color: $pale_blue
+            font-weight: bold
+            font-size: 1rem
+
+        .image_wrapper
+            position: relative
+        
