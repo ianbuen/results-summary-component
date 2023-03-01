@@ -37,7 +37,7 @@ export const ResultSummary = (props) => {
 
             {data.map(({category, score, icon, color}, i) => {
 
-                return <div style={{ color: color, background: color + "20" }} className={styles.category} key={i}>
+                return <div style={{ color: color, background: color + "10" }} className={styles.category} key={i}>
                     <div className={styles.image_wrapper}>
                         <Image src={icon} alt={category} fill />
                     </div>

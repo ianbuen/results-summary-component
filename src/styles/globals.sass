@@ -52,3 +52,9 @@ input
 
     a
         color: hsl(228, 45%, 44%)
+
+#__next
+    @media screen and (min-width: 720px) and (orientation: landscape)
+        display: grid
+        grid-auto-flow: column
+        grid-template-columns: auto minmax(720px, 38%) auto

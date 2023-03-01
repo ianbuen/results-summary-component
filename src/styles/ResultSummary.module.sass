@@ -1,8 +1,3 @@
-$light_red: hsl(0, 100%, 67%)
-$orangey_yellow: hsl(39, 100%, 56%)
-$green_teal: hsl(166, 100%, 37%)
-$cobalt_blue: hsl(234, 85%, 45%)
-
 $slate_blue: hsl(252, 100%, 67%)
 $royal_blue: hsl(241, 81%, 54%)
 
@@ -12,8 +7,26 @@ $persian_blue: hsla(241, 72%, 46%, 0)
 $pale_blue: hsl(221, 100%, 96%)
 $light_lavender: hsl(241, 100%, 89%)
 $dark_gray_blue: hsl(224, 30%, 27%)
-    
+
+
+@mixin responsive($width)
+    @media screen and (min-width: $width) and (orientation: landscape)
+        @content
+
 .summary
+
+    @include responsive(720px)
+        grid-column: 2
+        display: grid
+        grid-auto-flow: column
+        grid-template-columns: 1fr 1fr
+        grid-auto-rows: max-content
+        align-content: center
+        min-height: 100vh
+
+    header, main
+        @include responsive(720px)
+            border-radius: 1.875rem 
 
     header
         display: grid
@@ -24,9 +37,17 @@ $dark_gray_blue: hsl(224, 30%, 27%)
         padding: 1.5625rem 3.125rem 2.5rem
         text-align: center
 
+        @include responsive(720px)
+            grid-column: 1
+            grid-row: 1
+            padding: 2.5rem 3.125rem 3.125rem
+
         h1
             color: $light_lavender
             font-weight: bold
+            @include responsive(720px)
+                font-size: 1.5rem
+            
         
         h2
             background: linear-gradient($violet_blue, $persian_blue)
@@ -36,23 +57,35 @@ $dark_gray_blue: hsl(224, 30%, 27%)
             padding: 1.4rem
             margin: 1.5625rem 0
             font-size: .75rem
-            color: $light_lavender
+            color: transparentize($light_lavender, 0.5)
+            font-weight: bolder
+            @include responsive(720px)
+                font-size: 1.15rem
+                padding: 3rem
+                margin: 2.1875rem 0
 
             span
                 font-size: 3rem
-                font-weight: bolder
                 color: white
                 padding: 0.5rem
+                @include responsive(720px)
+                    font-size: 4.5rem
         
         h3
             color: white
             font-weight: bold
             font-size: 1.25rem
             margin-bottom: 1rem
+            @include responsive(720px)
+                font-size: 2rem
+                margin-bottom: 1.5rem
 
         p
             color: $light_lavender
-            font-weight: 300
+            font-weight: 400
+            @include responsive(720px)
+                font-size: 1.15rem
+                line-height: 1.25
 
     main
         display: grid
@@ -60,8 +93,29 @@ $dark_gray_blue: hsl(224, 30%, 27%)
         row-gap: .9375rem
         font-weight: bold
 
+        @include responsive(720px)
+            grid-column: 1 / span 2
+            grid-row: 1
+            grid-template-columns: 1fr 1fr
+            column-gap: 5rem
+            row-gap: 1.15rem
+            box-shadow: 10px 40px 1.25rem 5px transparentize($royal_blue, 0.94)
+            padding: 2.5rem
+            font-weight: 600
+            font-size: 1.15rem
+        
+            > *
+                grid-column: 2
+
         > h1
             line-height: 2
+            font-weight: bolder
+            color: $dark_gray_blue
+            font-size: 1.15rem
+            @include responsive(720px)
+                font-size: 1.5rem
+                line-height: 1
+                margin-bottom: 0.5rem
 
         .category
             padding: .9375rem
@@ -71,12 +125,20 @@ $dark_gray_blue: hsl(224, 30%, 27%)
             grid-auto-flow: column
             column-gap: .3125rem
             grid-template-columns: 2rem auto max-content
+            font-weight: bold
+            @include responsive(720px)
+                grid-template-columns: 1.25rem auto max-content
+                column-gap: .75rem
+                h2
+                    align-self: center
+
 
             .score
                 color: grey
 
                 span
                     color: $dark_gray_blue
+                    margin-right: .25rem
 
         input
             border: none
@@ -86,7 +148,10 @@ $dark_gray_blue: hsl(224, 30%, 27%)
             color: $pale_blue
             font-weight: bold
             font-size: 1rem
-            margin: 1rem
+            margin: 1rem 0
+            @include responsive(720px)
+                margin: 1.5rem 0 0
+                font-size: 1.15rem
 
         .image_wrapper
             position: relative
