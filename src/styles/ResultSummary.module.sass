@@ -153,6 +153,17 @@ $dark_gray_blue: hsl(224, 30%, 27%)
                 margin: 1.5rem 0 0
                 font-size: 1.15rem
 
+            &:hover
+                background: linear-gradient($slate_blue, $royal_blue)
+                animation: colorfade 100ms linear
+                cursor: pointer
+
         .image_wrapper
-            position: relative
+            position: relative 
+
+@keyframes colorfade 
+    0%
+        background: $dark_gray_blue
+    100%
+        background: $royal_blue
         
